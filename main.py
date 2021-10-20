@@ -26,6 +26,11 @@ def is_prime(n):
         if n%i == 0:
             return False
     return True
+def test_is_prime():
+    assert(is_prime(5)==True)
+    assert (is_prime(2) == True)
+    assert (is_prime(4) == False)
+    assert (is_prime(13) == True)
 def is_superprim(n):
     if n<=1:
         return False
@@ -34,6 +39,11 @@ def is_superprim(n):
             return False
         n=n//10
     return True
+def test_is_superprim():
+    assert(is_superprim(123)==False)
+    assert (is_superprim(239) == True)
+    assert (is_superprim(23) == True)
+    assert (is_superprim(1045) == False)
 def afisare_superprim(lista):
     for el in lista :
         if is_superprim(el)==True:
@@ -42,6 +52,11 @@ def cmmdc(a,b):
     if b==0:
         return a
     return cmmdc(b,a%b)
+def test_cmmdc():
+    assert(cmmdc(24,16)==8)
+    assert (cmmdc(18, 27) == 9)
+    assert (cmmdc(11, 23) == 1)
+    assert (cmmdc(1,5) == 1)
 def invers(a):
     a=-a
     aux=0
@@ -49,6 +64,11 @@ def invers(a):
         aux=aux*10+a%10
         a=a//10
     return -aux
+def test_invers():
+    assert(invers(-13)==-31)
+    assert (invers(-1234) == -4321)
+    assert (invers(-51) == -15)
+    assert (invers(-6) == -6)
 def afisare_modificat(lista):
     rezultat=[]
     ok=True
@@ -92,6 +112,10 @@ def start():
             afisare_modificat(lista)
         else:
             break
+test_is_prime()
+test_is_superprim()
+test_cmmdc()
+test_invers()
 start()
 
 
