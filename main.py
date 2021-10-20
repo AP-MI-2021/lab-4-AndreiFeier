@@ -1,27 +1,47 @@
 def citire_lista():
+    '''
+    Citeste lista
+    :return:list,lista de numere
+    '''
     lista =input("lista : ")
     lista=lista.split()
     lista=[int(el)for el in lista]
     return lista
 def afisare_negative(lista):
+    '''
+    Afiseaza numerele negative din lista
+    :param lista:list,lista de numere initiala
+    :return:None
+    '''
     for el in lista :
         if el < 0:
             print(el)
 def afisare_mic(lista,cifra):
+    '''
+    Afiseaza cel mai mic numar pozitiv cu ultima cifra parametrul cifra
+    :param lista:list,lista de numere initiala
+    :param cifra: int,ultima cifra
+    :return: int,cel mai mic numar
+    '''
     ok=False
     for el in lista:
-        if el % 10 ==cifra :
+        if el % 10 ==cifra and el>10:
             ok=True
             minim=el
             break
     if ok == True:
         for el in lista :
-            if el % 10==cifra and minim >el :
+            if el % 10==cifra and minim >el and el > 10:
                 minim = el
         print(minim)
     else:
         print("Nu exista")
 def is_prime(n):
+    '''
+    Verifica daca n este numar prim
+    :param n: int,numarul pe care vrem sa il verificam
+    :return: True daca n prim,False altfel
+    '''
     for i in range(2,n-1):
         if n%i == 0:
             return False
@@ -32,6 +52,11 @@ def test_is_prime():
     assert (is_prime(4) == False)
     assert (is_prime(13) == True)
 def is_superprim(n):
+    '''
+    Verifica daca numarul n este superprim
+    :param n: int,numarul pe care vrem sa il verificam
+    :return: True daca n superprim,False altfel
+    '''
     if n<=1:
         return False
     while n!=0:
@@ -45,10 +70,21 @@ def test_is_superprim():
     assert (is_superprim(23) == True)
     assert (is_superprim(1045) == False)
 def afisare_superprim(lista):
+    '''
+    Afiseaza toate numerele superprime din lista
+    :param lista: list,lista initiala
+    :return: None
+    '''
     for el in lista :
         if is_superprim(el)==True:
             print(el)
 def cmmdc(a,b):
+    '''
+    Afla cmmdc dintre a si b
+    :param a:int
+    :param b:int
+    :return:int,cmmdc dintre a si b
+    '''
     if b==0:
         return a
     return cmmdc(b,a%b)
@@ -58,6 +94,11 @@ def test_cmmdc():
     assert (cmmdc(11, 23) == 1)
     assert (cmmdc(1,5) == 1)
 def invers(a):
+    '''
+    Calculeaza numarul negativ inversat din numarul dat
+    :param a:int
+    :return:int,inversul lui a
+    '''
     a=-a
     aux=0
     while a!=0:
@@ -70,6 +111,11 @@ def test_invers():
     assert (invers(-51) == -15)
     assert (invers(-6) == -6)
 def afisare_modificat(lista):
+    '''
+    Afiseaza lista de numere modificate dupa cerinta
+    :param lista:list,lista initiala
+    :return:None
+    '''
     rezultat=[]
     ok=True
     for el in lista :
